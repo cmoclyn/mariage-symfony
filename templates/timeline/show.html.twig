@@ -6,15 +6,20 @@
 <div class="container">
     <div class="timeline">
     {% for event in timeline.events %}
+		{% set reversed = (loop.index % 2 == 0) ? 'reversed' : '' %}
         <div class="timeline-row">
 			<div class="timeline-time">
-				{{ event.date|date('d/m/Y') }} - <h4>{{ event.name }}</h4>
+				{{ event.date|date('d/m/Y') }}
 			</div>
-			<div class="timeline-content">
-				{% if event.picture is defined %}
-					<img src="/build/images/{{ event.picture }}" />
+			<div class="timeline-content card">
+				{% if event.picture is not null %}
+					<img class="card-img-top" src="/build/images/{{ event.picture }}" />
 				{% endif %}
-				<p>{{ event.description|nl2br }}</p>
+				<div class="card-name {{ reversed }}">{{ event.name }}</div>
+				<div class="card-date {{ reversed }}">{{ event.date|date('d/m/Y') }}</div>
+				<div class="card-body">
+					{{ event.description|nl2br }}
+				</div>
 			</div>
 		</div>
     {% endfor %}

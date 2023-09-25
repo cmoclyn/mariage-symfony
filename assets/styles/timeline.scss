@@ -5,21 +5,36 @@
 }
 
 .timeline-content{
-    overflow: hidden;
-    
-    & > img{
-        max-width: 100%;
-        position: absolute;
-        z-index: -1;
-        opacity: 0.75;
-    }
 
-    & > p{
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(3px);
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 0;
+    &.card{
+        & > .card-name,
+        & > .card-date{
+            font-weight: bold;
+            position: absolute;
+            top: 0;
+            background: $menu-background;
+            color: snow;
+            padding: 5px 15px;
+            font-size: 0.75em;
+        }
+
+        & > .card-name,
+        & > .card-date.reversed{
+            left: 0;
+            right: unset;
+            border-radius: 0 0 5px 0;
+        }
+
+        & > .card-date,
+        & > .card-name.reversed{
+            right: 0;
+            left: unset;
+            border-radius: 0 0 0 5px;
+        }
+
+        & > .card-body{
+            padding-top: 1.75rem;
+        }
     }
 }
 
@@ -64,7 +79,7 @@
 }
 .timeline-row .timeline-content {
     position: relative;
-    padding: 20px 30px;
+    //padding: 20px 30px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border: 1px solid grey;

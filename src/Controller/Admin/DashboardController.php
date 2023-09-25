@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Message;
+use App\Repository\MessageRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -26,7 +27,8 @@ class DashboardController extends AbstractDashboardController
 {
 
     public function __construct(
-        private readonly PersonRepository $personRepository
+        private readonly PersonRepository $personRepository,
+        private readonly MessageRepository $messageRepository
     ){}
 
     #[Route('/admin', name: 'admin')]
@@ -93,6 +95,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        $nbUnreadMessage = $this->messageRepository->count(['isRead' => false]);
         return [
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
             MenuItem::linkToRoute('Site', 'fa fa-home', 'app_index'),
@@ -106,7 +109,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Timelines', 'fa fa-user', Timeline::class),
             MenuItem::linkToCrud('Events', 'fa fa-user', TimelineEvent::class),
             MenuItem::linkToCrud('Contacts', 'fa fa-user', Contact::class),
-            MenuItem::linkToCrud('Messages', 'fa fa-user', Message::class),
+            MenuItem::linkToCrud("Messages <span class=\"badge badge-info\">$nbUnreadMessage</span>", 'fa fa-user', Message::class),
             MenuItem::section('Meal'),
             MenuItem::linkToCrud('Drink', 'fa fa-user', Drink::class),
             MenuItem::linkToCrud('Food', 'fa fa-user', Food::class),
