@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Message{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="text-center mb-3">Envoyez nous un message !</h2>
+
+    <p>
+        Vous pouvez nous envoyer un message pour nous dire si vous venez ou pas,
+        si vous avez des questions et également si vous avez des allergies alimentaires.<br />
+        Vous pouvez également nous indiquer votre participation à des activités (quand nous les auront publiées).<br />
+        N'oubliez pas de nous dire vos noms et prénoms pour qu'on sâche qui nous écrit.<br />
+        <br />
+        Vous pouvez également nous contacter directement, ou contacter les témoins.
+    </p>
+
+    {{ include('message/_form.html.twig') }}
+</div>
+{% endblock %}

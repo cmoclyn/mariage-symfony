@@ -1,0 +1,45 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block main %}
+    <div class="row row-cols-4">
+        <div class="col">
+            <div class="card h-100 text-center">
+                <div class="card-header">
+                    <i class="fa fa-user rounded me-2"></i>
+                    <strong class="me-auto">Faire-part</strong>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success p-1 mb-1">Envoyés : {{ announcement.sent }} / {{ announcement.total }} - <small>{{ announcement.percent_yes|number_format(2, ',', ' ') }}%</small></div>
+                    <div class="alert alert-danger p-1 mb-1">Non envoyés : {{ announcement.notSent }} / {{ announcement.total }} - <small>{{ announcement.percent_no|number_format(2, ',', ' ') }}%</small></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 text-center">
+                <div class="card-header">
+                    <i class="fa fa-user rounded me-2"></i>
+                    <strong class="me-auto">Présents</strong>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success p-1 mb-1">Présents : {{ coming.yes }} / {{ coming.total }} - <small>{{ coming.percent_yes|number_format(2, ',', ' ') }}%</small></div>
+                    <div class="alert alert-danger p-1 mb-1">Non présents : {{ coming.no }} / {{ coming.total }} - <small>{{ coming.percent_no|number_format(2, ',', ' ') }}%</small></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 text-center">
+                <div class="card-header">
+                    <i class="fa fa-user rounded me-2"></i>
+                    <strong class="me-auto">Hébergés</strong>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-success p-1 mb-1">Hébergés : {{ lodged.lodged }} / {{ lodged.total }} - <small>{{ lodged.percent_yes|number_format(2, ',', ' ') }}%</small></div>
+                    <div class="alert alert-danger p-1 mb-1">Non hébergés : {{ lodged.notLodged }} / {{ lodged.total }} - <small>{{ lodged.percent_no|number_format(2, ',', ' ') }}%</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

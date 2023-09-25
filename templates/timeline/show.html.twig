@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ timeline.name }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="timeline">
+    {% for event in timeline.events %}
+        <div class="timeline-row">
+			<div class="timeline-time">
+				{{ event.date|date('d/m/Y') }} - <h4>{{ event.name }}</h4>
+			</div>
+			<div class="timeline-content">
+				{% if event.picture is defined %}
+					<img src="/build/images/{{ event.picture }}" />
+				{% endif %}
+				<p>{{ event.description|nl2br }}</p>
+			</div>
+		</div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

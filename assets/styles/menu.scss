@@ -1,0 +1,120 @@
+@import "variables";
+@import "media";
+
+#show-menu{
+    display: none;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    height: 50px;
+    background-color: $menu-background;
+
+    @include media-max($breakpoint) {
+        display: inline-block;
+        padding: 0 1rem;
+        line-height: 50px;
+        color: white;
+
+        & > svg{
+            width: 25px;
+            margin-right: 5px;
+        }
+
+        &:hover{
+            cursor: pointer;
+
+            & + #menu{
+                display: flex;
+            }
+        }
+    }
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    z-index: 2;
+    height: 50px;
+    background-color: $menu-background;
+    justify-content: center;
+    align-items: stretch;
+
+    &:hover{
+        display: flex;
+    }
+
+    & > .has-submenu{
+        text-align: center;
+
+        &:hover > .submenu{
+            display: flex;
+        }
+
+        @include media-max($breakpoint) {
+            width: 100%;
+        }
+    }
+
+    & > *:hover{
+        background: $menu-hover;
+    }
+
+    & a {
+        padding: 0 1rem;
+        min-width: 150px;
+        line-height: 50px;
+        height: 100%;
+        font-size: 15px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+
+        @include media-max($breakpoint) {
+            text-align: left;
+            width: 100%;
+            font-size: 1em;
+        }
+    }
+
+    @include media-max($breakpoint) {
+        display: none;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        & > *{
+            border-bottom: 1px solid snow;
+        }
+    }
+}
+
+.submenu{
+    display: none;
+    flex-direction: column;
+    background: $menu-background;
+
+    & > *:hover{
+        background: $submenu-hover;
+    }
+
+    & > a{
+        padding: 0;
+
+        @include media-max($breakpoint) {
+            padding-left: 50px;
+            border-bottom: 1px solid grey;
+        }
+    }
+
+    @include media-max($breakpoint) {
+        width: 100%;
+    }
+}

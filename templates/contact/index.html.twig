@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Contacts - {{ type }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mb-3">En cas de besoin vous pouvez nous contacter</h2>
+        <div class="card-deck">
+        {% for contact in contacts %}
+            <div class="card contact">
+                <img class="card-img-top" src="/build/images/{{ contact.picture }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ contact.name }}</h5>
+                    {% if contact.phoneNumber %}<small>Téléphone : {{ contact.phoneNumber }}</small><br />{% endif %}
+                    {% if contact.email %}<small>Email : {{ contact.email }}</small>{% endif %}
+                    {% if contact.description %}
+                    <hr />
+                    <p class="card-text">{{ contact.description }}</p>
+                    {% endif %}
+                </div>
+
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
