@@ -16,6 +16,7 @@
 					<img class="card-img-top" src="/build/images/{{ event.picture }}" />
 				{% endif %}
 				<div class="card-name {{ reversed }}">{{ event.name }}</div>
+				<div class="card-date {{ reversed }}">{{ event.date|date('d/m/Y') }}</div>
 				<div class="card-body">
 					{{ event.description|nl2br }}
 				</div>

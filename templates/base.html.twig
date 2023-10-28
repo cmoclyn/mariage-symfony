@@ -13,6 +13,9 @@
         {% endblock %}
     </head>
     <body>
+        {% if 'dev' == app.environment %}
+            <div id="ribbon" class="ribbon-dev">DEV</div>
+        {% endif %}
         {% if app.user %}
             {% include 'menu.html.twig' %}
         {% endif %}

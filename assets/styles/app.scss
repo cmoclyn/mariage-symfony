@@ -4,7 +4,26 @@
 @import "maps";
 @import "timeline";
 @import "lodging";
+@import "food";
 @import "~bootstrap/scss/bootstrap";
+
+html{
+    overflow: hidden;
+}
+
+#ribbon{
+    position: absolute;
+    background: var(--bs-blue);
+    color: var(--bs-yellow);
+    font-weight: bold;
+    right: -35px;
+    top: 25px;
+    width: 150px;
+    height: 25px;
+    z-index: 5;
+    text-align: center;
+    transform: rotate(45deg);
+}
 
 .sf-toolbarreset {
     display: none !important;

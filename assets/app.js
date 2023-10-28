@@ -6,7 +6,7 @@
  */
 import './styles/app.scss';
 import 'bootstrap'; // Original bootstrap by Encore
-import './bootstrap.js';
+// import './bootstrap.js';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '@fortawesome/fontawesome-free/js/all.js';

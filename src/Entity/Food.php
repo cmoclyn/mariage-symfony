@@ -33,6 +33,12 @@ class Food
     #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'foods')]
     private Collection $menus;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
+    #[ORM\Column]
+    private ?float $price = null;
+
     public function __construct()
     {
         $this->menus = new ArrayCollection();
@@ -126,6 +132,30 @@ class Food
         if ($this->menus->removeElement($menu)) {
             $menu->removeFood($this);
         }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): static
+    {
+        $this->price = $price;
 
         return $this;
     }

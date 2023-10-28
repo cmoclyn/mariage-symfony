@@ -7,7 +7,8 @@
 .timeline-content{
 
     &.card{
-        & > .card-name{
+        & > .card-name,
+        & > .card-date{
             font-weight: bold;
             position: absolute;
             top: 0;
@@ -15,15 +16,20 @@
             color: snow;
             padding: 5px 15px;
             font-size: 0.75em;
-            right: 0;
-            left: unset;
-            border-radius: 0 0 0 5px;
         }
 
-        & > .card-name.reversed{
+        & > .card-name,
+        & > .card-date.reversed{
             left: 0;
             right: unset;
             border-radius: 0 0 5px 0;
+        }
+
+        & > .card-date,
+        & > .card-name.reversed{
+            right: 0;
+            left: unset;
+            border-radius: 0 0 0 5px;
         }
 
         & > .card-body{

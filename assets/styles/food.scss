@@ -1,0 +1,19 @@
+.plats,
+.garnitures {
+    & i {
+        font-family: 'FontAwesome';
+        font-style: normal;
+
+        &:after{
+            content: "";
+            display: block;
+            position: relative;
+            background: red;
+            width: 2px;
+            height: 15px;
+            transform: rotate(45deg);
+            top: -19px;
+            right: -7px;
+        }
+    }
+}
